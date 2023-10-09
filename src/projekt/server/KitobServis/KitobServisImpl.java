@@ -36,9 +36,14 @@ public class KitobServisImpl {
         System.out.println(Rang.YASHIL.getRang()+"Siz Muvaqiyatli qushdingiz ");
         }
         Path path = Path.of("Kitoblar.txt");
+        try {
+            Files.write(path,"".getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         for (Kitob kitob1 : kitobs) {
             String str = kitob1.getName()+"#"+kitob1.getMualif()+"#"+kitob1.getNarxi()+"#"+kitob1.getKitoblarsoni()+"\n";
-            try (FileOutputStream fileOutputStream = new FileOutputStream(String.valueOf(path))){
+            try (FileOutputStream fileOutputStream = new FileOutputStream(String.valueOf(path),true)){
                 fileOutputStream.write(str.getBytes());
             } catch (Exception e) {
                 e.printStackTrace();
