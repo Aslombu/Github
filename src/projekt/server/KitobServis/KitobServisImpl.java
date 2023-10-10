@@ -6,14 +6,9 @@ import src.projekt.ui.ranglar.Rang;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
-import java.util.Objects;
-import java.util.stream.Stream;
-
 public class KitobServisImpl {
 
     public void Add(Kitob kitob) {
@@ -23,7 +18,7 @@ public class KitobServisImpl {
         int i=0;
         for (Kitob kitob1 : kitobs) {
             if(kitob.getName().equals(kitob1.getName())){
-                kitob1.setKitoblarsoni(kitob.getKitoblarsoni()+kitob.getKitoblarsoni());
+                kitob1.setKitoblarsoni(kitob1.getKitoblarsoni()+kitob.getKitoblarsoni());
                 System.out.println(Rang.YASHIL.getRang()+"Siz muvaqiyatli qushdingiz ");
                 i++;
             }
@@ -37,7 +32,7 @@ public class KitobServisImpl {
         }
         Path path = Path.of("Kitoblar.txt");
         try {
-            Files.write(path,"".getBytes());
+            Files.delete(path);
         } catch (IOException e) {
             e.printStackTrace();
         }
