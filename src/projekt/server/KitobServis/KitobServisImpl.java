@@ -19,7 +19,7 @@ public class KitobServisImpl {
         for (Kitob kitob1 : kitobs) {
             if(kitob.getName().equals(kitob1.getName())){
                 kitob1.setKitoblarsoni(kitob1.getKitoblarsoni()+kitob.getKitoblarsoni());
-                System.out.println(Rang.YASHIL.getRang()+"Siz muvaqiyatli qushdingiz ");
+                System.out.println(Rang.YASHIL.getRang()+"Siz muvaqiyatli qushdingiz \n\n");
                 i++;
             }
         }
@@ -28,7 +28,7 @@ public class KitobServisImpl {
 
 
 
-        System.out.println(Rang.YASHIL.getRang()+"Siz Muvaqiyatli qushdingiz ");
+        System.out.println(Rang.YASHIL.getRang()+"Siz Muvaqiyatli qushdingiz \n\n ");
         }
         Path path = Path.of("Kitoblar.txt");
         try {
