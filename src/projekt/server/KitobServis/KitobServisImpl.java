@@ -6,14 +6,9 @@ import src.projekt.ui.ranglar.Rang;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
-import java.util.Objects;
-import java.util.stream.Stream;
-
 public class KitobServisImpl {
 
     public void Add(Kitob kitob) {
@@ -23,7 +18,7 @@ public class KitobServisImpl {
         int i=0;
         for (Kitob kitob1 : kitobs) {
             if(kitob.getName().equals(kitob1.getName())){
-                kitob1.setKitoblarsoni(kitob.getKitoblarsoni()+kitob.getKitoblarsoni());
+                kitob1.setKitoblarsoni(kitob1.getKitoblarsoni()+kitob.getKitoblarsoni());
                 System.out.println(Rang.YASHIL.getRang()+"Siz muvaqiyatli qushdingiz ");
                 i++;
             }
@@ -36,9 +31,14 @@ public class KitobServisImpl {
         System.out.println(Rang.YASHIL.getRang()+"Siz Muvaqiyatli qushdingiz ");
         }
         Path path = Path.of("Kitoblar.txt");
+        try {
+            Files.delete(path);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         for (Kitob kitob1 : kitobs) {
             String str = kitob1.getName()+"#"+kitob1.getMualif()+"#"+kitob1.getNarxi()+"#"+kitob1.getKitoblarsoni()+"\n";
-            try (FileOutputStream fileOutputStream = new FileOutputStream(String.valueOf(path))){
+            try (FileOutputStream fileOutputStream = new FileOutputStream(String.valueOf(path),true)){
                 fileOutputStream.write(str.getBytes());
             } catch (Exception e) {
                 e.printStackTrace();
