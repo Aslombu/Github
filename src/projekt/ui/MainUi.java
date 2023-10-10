@@ -12,6 +12,7 @@ public class MainUi {
         switch (kirit){
             case "1"-> KitobUi.kitobQushish();
             case "2"-> KitobUi.show();
+            case "3"->KitobUi.deletKitob();
         }
         }
     }
