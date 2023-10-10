@@ -1,6 +1,7 @@
 package src.projekt.ui;
 
 import src.projekt.server.KitobServis.KitobServisImpl;
+import src.projekt.server.databese.Database;
 import src.projekt.server.model.Kitob;
 import src.projekt.ui.ranglar.Rang;
 
@@ -27,5 +28,19 @@ public class KitobUi {
      static KitobServisImpl kitobServis = new KitobServisImpl();
     public static void show(){
         kitobServis.kurish();
+    }
+
+    public static void deletKitob() {
+        System.out.print(Rang.SARIQ.getRang()+"Uchirmoqchi bulgan Kitobningi nomini kirting : ");
+        String nomi = scanner.nextLine();
+        System.out.print(Rang.SARIQ.getRang()+"Uchirmoqchi bulgan Kitobning mualifini kirting : ");
+        String mualif = scanner.nextLine();
+        System.out.print(Rang.SARIQ.getRang()+" Kitobdan nechta Uchirasiz : ");
+        int soni = new Scanner(System.in).nextInt();
+        Kitob kitob = new Kitob(nomi,mualif,soni);
+        KitobServisImpl kitobServis1 = new KitobServisImpl();
+        kitobServis1.servisDelet(kitob);
+
+
     }
 }

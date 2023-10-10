@@ -13,6 +13,13 @@ public class Kitob {
         id = UUID.randomUUID().toString();
     }
 
+    public Kitob( String name, String mualif, int kitoblarsoni) {
+        this.id = UUID.randomUUID().toString();
+        this.name = name;
+        this.mualif = mualif;
+        this.kitoblarsoni = kitoblarsoni;
+    }
+
     public Kitob(String name, String mualif, int narxi, int kitoblarsoni) {
         this.id = UUID.randomUUID().toString();
         this.name = name;
